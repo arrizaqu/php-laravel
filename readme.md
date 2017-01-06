@@ -1,8 +1,9 @@
 #LARAVEL PHP FRAMEWORK 5.X  
-##Server Requirements
-##Installation 
+##Discussion
+	* Server Requirements
+	* Installation 
+	* Local Development Server
 
-#Note 
 ##Server Requirements
 	- PHP >= 5.6.4
 	- OpenSSL PHP Extension
@@ -23,3 +24,4 @@
 			* instruction : 
 				- composer create-project --prefer-dist laravel/laravel blog
 	
+##Local Development Server
