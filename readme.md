@@ -11,6 +11,7 @@
 	* Multiple HTTP verbs
 	* CSRF Protection
 	* Form Method Spoofing
+	* Response 
 	* MVC
 	* Blade View
 	* CRUD
@@ -116,7 +117,7 @@
 			//
 		  });
 		  
-##CSRF Protection
+## CSRF Protection
 	* 	Any HTML forms pointing to POST, PUT, or DELETE routes that are defined in the web 
 		routes file should include a CSRF token field.
 	
@@ -207,7 +208,7 @@
 
 			$url = route('profile', ['id' => 1]);
 			
-#	Form Method Spoofing
+## Form Method Spoofing
 		- 	HTML forms do not support PUT, PATCH or DELETE actions. 
 			So, when defining PUT, PATCH or  DELETE routes that are called from an HTML form, 
 			you will need to add a hidden _method field to the form. 
@@ -222,3 +223,12 @@
 			You may use the method_field helper to generate the _method input:
 
 			{{ method_field('PUT') }}
+			
+## Response
+	* 	Basic Response 
+		- example : 
+			Route::get('/', function(){
+				return 'Hello World';
+			});
+	
+	* 	
