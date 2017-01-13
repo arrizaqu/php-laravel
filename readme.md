@@ -6,6 +6,7 @@
 	* Local Development Server
 	* Hallo World 
 	* Routing
+	* Router Methods
 	* MVC
 	* Blade View
 	* CRUD
@@ -63,3 +64,36 @@
 					Route::get('/customer', 'Customer@index');
 				
 	* SITE URL : http;//localhost:8000/customer
+	
+## Routing
+	* notes : 
+		All Laravel routes are defined in your route files, which are located in the routes directory. 
+		These files are automatically loaded by the framework. 
+		The routes/web.php file defines routes that are for your web interface. 
+		These routes are assigned the web middleware group, which provides features like session state and CSRF protection. 
+		The routes in routes/api.php are stateless and are assigned the api middleware group.
+	
+	* script : 
+	 - example 1 /*just for text output*/
+		Route::get('foo', function () {
+			return 'Hello World';
+		});
+		
+	 - example 2 /* route for laravel controller */ 
+		Route::get('foo', function () {
+			return 'Hello World';
+		});
+		
+	 - example 3 /* laravel Controller and View */ 
+		Route::get('foo', function () {
+			return view('welcome');
+		});
+
+## Router Methods
+	- he router allows you to register routes that respond to any HTTP verb:
+		* Route::get($uri, $callback);
+		* Route::post($uri, $callback);
+		* Route::put($uri, $callback);
+		* Route::patch($uri, $callback);
+		* Route::delete($uri, $callback);
+		* Route::options($uri, $callback);
