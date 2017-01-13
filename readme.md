@@ -13,6 +13,7 @@
 	* Form Method Spoofing
 	* Response 
 	* Laravel Redirect
+	* Laravel View
 	* MVC
 	* Blade View
 	* CRUD
@@ -265,4 +266,34 @@
 		
 	*   - example 8 /* Returning A Redirect To A Controller Action Using Named Parameters */
 		return Redirect::action('UserController@profile', array('user' => 1));
+	
+## Laravel View
+	*	Views typically contain the HTML of your application and provide 
+		a convenient way of separating your controller and domain logic from your presentation logic. 
+		Views are stored in the app/views directory.
+		
+	* 	example 1 : 
+		Route::get('/', function()
+		{
+			return View::make('greeting', array('name' => 'Taylor'));
+		});
+		
+	*	example 3 /* Using conventional approach */
+		$view = View::make('greeting')->with('name', 'Steve');
+
+	* 	example 4 /* Using Magic Methods */
+		$view = View::make('greeting')->withName('steve');
+		
+	* 	Full Example Controller :
+		namespace App\Http\Controllers;
+		use Illuminate\Support\Facades\DB;
+		use Illuminate\Support\Facades\View;
+
+		 class Customer{
+			 
+			 public function index(){
+				$customers = DB::table('customers')->get();
+				return view::make('customer', array('name'=> 'fasdf'));
+			 }
+		 }
 		
