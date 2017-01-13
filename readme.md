@@ -12,6 +12,7 @@
 	* CSRF Protection
 	* Form Method Spoofing
 	* Response 
+	* Laravel Redirect
 	* MVC
 	* Blade View
 	* CRUD
@@ -239,3 +240,23 @@
 			Route::get('responseview', function(){
 				return Response::view('customer')->header('Content-Type', "text/html");
 			});
+			
+## Laravel Redirect 
+	*	- example 1 /* Returning A Redirect */
+		return Redirect::to('user/login');
+		
+	*	- example 2 /* Returning A Redirect With Flash Data */
+		return Redirect::to('user/login')->with('message', 'Login Failed');
+	
+	*	- example 3 /* Returning A Redirect To A Named Route */
+		return Redirect::route('login');
+	
+	*	- example 4 /* Returning A Redirect To A Named Route With Parameters */
+		return Redirect::route('profile', array(1));
+		
+	* 	- example 5 /* Returning A Redirect To A Named Route Using Named Parameters */
+		return Redirect::route('profile', array('user' => 1));
+		
+	*	- example 6 /* Returning A Redirect To A Controller Action */
+		return Redirect::action('HomeController@index');
+	
