@@ -260,3 +260,9 @@
 	*	- example 6 /* Returning A Redirect To A Controller Action */
 		return Redirect::action('HomeController@index');
 	
+	* 	- example 7 /* Returning A Redirect To A Controller Action With Parameters */
+		return Redirect::action('UserController@profile', array(1));
+		
+	*   - example 8 /* Returning A Redirect To A Controller Action Using Named Parameters */
+		return Redirect::action('UserController@profile', array('user' => 1));
+		
