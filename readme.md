@@ -62,3 +62,4 @@
 				<?php 
 					Route::get('/customer', 'Customer@index');
 				
+	* SITE URL : http;//localhost:8000/customer
