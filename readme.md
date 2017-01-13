@@ -4,7 +4,13 @@
 	* Installation 
 	* Application Key
 	* Local Development Server
-	* Hallo World
+	* Hallo World 
+	* Routing
+	* MVC
+	* Blade View
+	* CRUD
+	* use plugin database library.
+	
 
 ##Server Requirements
 	- PHP >= 5.6.4
@@ -17,7 +23,7 @@
 	1. File Master Download
 		- Link Download : https://github.com/laravel/laravel
 	2. Composer 
-		- Composer Installer
+		- Composer Installerxz
 			* open command Line : 
 				-> composer global require "laravel/installer"
 			* and next instruction : 
@@ -38,3 +44,21 @@
 	* instruction : 
 		-> php artisan serve
 
+## Hallo World 
+	* create laravel controller 
+			- base URL file : -> \app\Http\Controllers\Customer.php
+			- PHP Content : 	
+				<?php 
+				namespace App\Http\Controllers;
+				 class Customer{
+					 public function index(){
+						echo phpinfo();
+					 } 
+				 }
+	
+	* Create Laravel Route : 
+			- URL File : -> \routes\web.php
+			- PHP Content : 
+				<?php 
+					Route::get('/customer', 'Customer@index');
+				
