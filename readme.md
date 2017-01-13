@@ -7,6 +7,7 @@
 	* Hallo World 
 	* Routing
 	* Router Methods
+	* Multiple HTTP verbs
 	* MVC
 	* Blade View
 	* CRUD
@@ -97,3 +98,17 @@
 		* Route::patch($uri, $callback);
 		* Route::delete($uri, $callback);
 		* Route::options($uri, $callback);
+		
+## Multiple HTTP Verbs
+	* 	Sometimes you may need to register a route that responds to multiple HTTP verbs. 
+		You may do so using the match method. Or, 
+		you may even register a route that responds to all HTTP verbs using the any method
+	
+	*	Script : 
+		* Route::match(['get', 'post'], '/', function () {
+			//
+		  });
+
+		* Route::any('foo', function () {
+			//
+		  });
