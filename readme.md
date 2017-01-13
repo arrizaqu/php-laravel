@@ -225,10 +225,17 @@
 			{{ method_field('PUT') }}
 			
 ## Response
-	* 	Basic Response 
-		- example : 
+	* 	- example 1 /* Basic Response */ 
 			Route::get('/', function(){
 				return 'Hello World';
 			});
 	
-	* 	
+	* 	 - example 2 /* Custome Response */ 
+			$response = Response::make("hallo world for laravel response", "201");
+			$response->header('Content-Type', "text/html");
+			return $response;
+			
+	*	- example 3 /* Response and view */
+			Route::get('responseview', function(){
+				return Response::view('customer')->header('Content-Type', "text/html");
+			});
