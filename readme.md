@@ -7,6 +7,7 @@
 	* Hallo World 
 	* Routing
 	* Router Methods
+	* Route Parameters
 	* Multiple HTTP verbs
 	* CSRF Protection
 	* MVC
@@ -123,3 +124,25 @@
 			{{ csrf_field() }}
 			...
 		</form>
+		
+## Route Parameters
+	* Required Parameter
+		- example 1: 
+			Route::get('user/{id}', function ($id) {
+				return 'User '.$id;
+			});
+			
+		- example 2: 
+			Route::get('posts/{post}/comments/{comment}', function ($postId, $commentId) {
+				//
+			});
+	
+	* Optional Parameters
+		- example 1: 
+			Route::get('user/{name?}', function ($name = null) {
+				return $name;
+			});
+
+			Route::get('user/{name?}', function ($name = 'John') {
+				return $name;
+			});
