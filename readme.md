@@ -181,4 +181,29 @@
 			Route::get('user/{id}', function ($id) {
 				// Only executed if {id} is numeric...
 			});
-				
+			
+	* Named Routes
+		-	Named routes allow the convenient generation of URLs or redirects for specific routes. 
+			You may specify a name for a route by chaining the name method onto the route definition:
+			
+			Route::get('user/profile', function () {
+				//
+			})->name('profile');
+			
+		-	Once you have assigned a name to a given route, 
+			you may use the route's name when generating URLs or redirects via the global route function:
+			
+			// Generating URLs...
+			$url = route('profile');
+
+			// Generating Redirects...
+			return redirect()->route('profile');		
+
+		-	Given router with parameter
+			Route::get('user/{id}/profile', function ($id) {
+				//
+			})->name('profile');
+
+			$url = route('profile', ['id' => 1]);
+			
+		
