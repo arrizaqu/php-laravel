@@ -143,6 +143,42 @@
 				return $name;
 			});
 
+		- 	example 2 : 
 			Route::get('user/{name?}', function ($name = 'John') {
 				return $name;
 			});
+			
+	* Regular Expression Constraints
+		- 	example 1:
+			Route::get('user/{name}', function ($name) {
+				//
+			})->where('name', '[A-Za-z]+');
+		
+		- 	example 2: 
+			Route::get('user/{id}', function ($id) {
+				//
+			})->where('id', '[0-9]+');
+
+		- 	example 3: 
+			Route::get('user/{id}/{name}', function ($id, $name) {
+				//
+			})->where(['id' => '[0-9]+', 'name' => '[a-z]+']);
+			
+	* Global Parameter
+		- 	example 1 : 
+			If you would like a route parameter to always be constrained by a given regular expression, 
+			you may use the pattern method. 
+			You should define these patterns in the boot method of your  RouteServiceProvider
+			
+			public function boot()
+			{
+				Route::pattern('id', '[0-9]+');
+				parent::boot();
+			}
+				
+		-	Once the pattern has been defined, it is automatically applied to all routes using that parameter name:
+
+			Route::get('user/{id}', function ($id) {
+				// Only executed if {id} is numeric...
+			});
+				
