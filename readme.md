@@ -337,3 +337,20 @@
 				
 		* Route : 
 			- Route::get('singleprofile', 'SingleController');
+			
+	* 	example 3 /* Controller Middleware */
+			- Middleware may be assigned to the controller's routes in your route files:
+			- Route : 
+				- Instruction : -> Route::get('profile', 'UserController@show')->middleware('auth');
+			
+				THIS SAME AS CONTROLLER CONSTRUCT LIKE : 
+			
+			- Controller 1 : 
+				class UserController extends Controller
+				{
+					public function __construct()
+					{
+						$this->middleware('auth');
+					}
+				}
+				
