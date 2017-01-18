@@ -302,21 +302,38 @@
 		 The base class provides a few convenience methods such as the  middleware method, 
 		 which may be used to attach middleware to controller actions: 
 	
-	*	example 1 :
+	*	example 1 /* basic laravel controller */
 		* Controller : 
 			- instruction -> "php artisan make:controller My_home"
 			- Controller Script : 
 				namespace App\Http\Controllers;
 				use Illuminate\Http\Request;
-				class My_home extends Controller
+				class UserController extends Controller
 				{
-					//
-					public function index(){
-						return "hello world";
+					public function show($id)
+					{
+						return view('user.profile', ['user' => User::findOrFail($id)]);
 					}
 				}
 		* Route : 
-			- instruction -> Route::get('home', 'My_home@index');
+			- instruction -> Route::get('user/{id}', 'UserController@show');
 		
-		
-		
+	* 	example 2 /* Single Action Controllers */
+		* Controller 
+			- If you would like to define a controller that only handles a single action, 
+			  you may place a single  __invoke method on the controller: 
+			  
+			- Script : 
+				namespace App\Http\Controllers;
+				use Illuminate\Http\Request;
+
+				class SingleController extends Controller
+				{
+					//
+					public function __invoke(){
+						return "hello world";
+					}
+				}
+				
+		* Route : 
+			- Route::get('singleprofile', 'SingleController');
