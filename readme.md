@@ -14,7 +14,7 @@
 	* Response 
 	* Laravel Redirect
 	* Laravel View
-	* MVC
+	* Laravel Controller
 	* Blade View
 	* CRUD
 	* use plugin database library.
@@ -296,4 +296,27 @@
 				return view::make('customer', array('name'=> 'fasdf'));
 			 }
 		 }
+		 
+## Laravel Controller
+	*	 that the controller extends the base controller class included with Laravel. 
+		 The base class provides a few convenience methods such as the  middleware method, 
+		 which may be used to attach middleware to controller actions: 
+	
+	*	example 1 :
+		* Controller : 
+			- instruction -> "php artisan make:controller My_home"
+			- Controller Script : 
+				namespace App\Http\Controllers;
+				use Illuminate\Http\Request;
+				class My_home extends Controller
+				{
+					//
+					public function index(){
+						return "hello world";
+					}
+				}
+		* Route : 
+			- instruction -> Route::get('home', 'My_home@index');
+		
+		
 		
