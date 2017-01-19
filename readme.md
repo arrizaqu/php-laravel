@@ -339,18 +339,63 @@
 			- Route::get('singleprofile', 'SingleController');
 			
 	* 	example 3 /* Controller Middleware */
-			- Middleware may be assigned to the controller's routes in your route files:
-			- Route : 
-				- Instruction : -> Route::get('profile', 'UserController@show')->middleware('auth');
-			
-				THIS SAME AS CONTROLLER CONSTRUCT LIKE : 
-			
-			- Controller 1 : 
+		- Middleware may be assigned to the controller's routes in your route files:
+		- Route : 
+			- Instruction : -> Route::get('profile', 'UserController@show')->middleware('auth');
+		
+			THIS SAME AS CONTROLLER CONSTRUCT LIKE : 
+		
+		- Controller 1 : 
+			class UserController extends Controller
+			{
+				public function __construct()
+				{
+					$this->middleware('auth');
+				}
+			}
+	
+	* 	example 4 /* Dependency Injection & Controllers */
+		*  	Constructor Injection
+			-	example : 
+				namespace App\Http\Controllers;
+				use App\Repositories\UserRepository;
 				class UserController extends Controller
 				{
-					public function __construct()
+					/**
+					 * The user repository instance.
+					 */
+					protected $users;
+
+					/**
+					 * Create a new controller instance.
+					 *
+					 * @param  UserRepository  $users
+					 * @return void
+					 */
+					public function __construct(UserRepository $users)
 					{
-						$this->middleware('auth');
+						$this->users = $users;
 					}
 				}
+				
+		* 	Method Injection 
+			-	example : 
+					namespace App\Http\Controllers;
+					use Illuminate\Http\Request;
+					class UserController extends Controller
+					{
+						/**
+						 * Store a new user.
+						 *
+						 * @param  Request  $request
+						 * @return Response
+						 */
+						public function store(Request $request)
+						{
+							$name = $request->name;
+						}
+					}
+		
+			-	Route : 
+				-	Route::put('user/{id}', 'UserController@update');
 				
