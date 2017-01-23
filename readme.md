@@ -15,7 +15,7 @@
 	* Laravel Redirect
 	* Laravel View
 	* Laravel Controller
-	* Blade View
+	* Blade Template
 	* CRUD
 	* use plugin database library.
 	
@@ -398,4 +398,96 @@
 		
 			-	Route : 
 				-	Route::put('user/{id}', 'UserController@update');
+		
+## 	Blade Template
+	*	Blade is the simple, yet powerful templating engine provided with Laravel.
+	* 	Template Inheritance
+		- master file ('usually master.blade.php') /* master template */
+			*	example : 
+				<!DOCTYPE html>
+				<html>
+					<head>
+						<title>app name - @yield('title')</title>
+					</head>
+					<body>
+						@section('sidebar')
+							this is laravel sidebar
+						@show
+						<div class="container">
+							@yield('content')
+						</div>
+					</body>
+				</html>
 				
+		- clild / used UI
+			* 	example : 
+				<!DOCTYPE html>
+				<html>
+					<head>
+						<title>app name - @yield('title')</title>
+					</head>
+					<body>
+						@section('sidebar')
+							this is laravel sidebar
+						@show
+						<div class="container">
+							@yield('content')
+						</div>
+					</body>
+				</html>
+		
+		-	Note  
+			* 	As you can see, this file contains typical HTML mark-up. 
+				However, take note of the @section and  @yield directives. The @section directive, 
+				as the name implies, defines a section of content, 
+				while the @yield directive is used to display the contents of a given section.
+			* 	@extends directive to specify which layout the child view should "inherit". 
+				Views which extend a Blade layout may inject content 
+				into the layout's sections using @section directives
+			*	The @parent directive will be replaced by the content of the layout when the view is rendered.
+	
+	*	Displaying Data
+		* 	Route File : 
+			-	Route::get('greeting', function () {
+					return view('welcome', ['name' => 'Samantha']);
+				});
+				
+		* 	View
+			- 	Hello, {{ $name }}.
+			
+	* 	Echoing Data If It Exists
+			-	Sometimes you may wish to echo a variable, but you aren't sure if the variable has been set. 
+				We can express this in verbose PHP code like so:
+				
+				{{ isset($name) ? $name : 'Default' }} OR {{ $name or 'Default' }}
+		
+	* 	Control Structures
+		* 	If Statements
+					@if($myname === 'arrizaqu@yahoo.com')
+						hello masyda
+					@else
+						hello bukan masyda
+					@endif
+					
+		*	Loops
+			-	example : 
+				@for ($i = 0; $i < 10; $i++)
+					The current value is {{ $i }}
+				@endfor
+
+				@foreach ($users as $user)
+					<p>This is user {{ $user->id }}</p>
+				@endforeach
+
+				@forelse ($users as $user)
+					<li>{{ $user->name }}</li>
+				@empty
+					<p>No users</p>
+				@endforelse
+
+				@while (true)
+					<p>I'm looping forever.</p>
+				@endwhile
+				
+		*	The Loop Variable
+		
