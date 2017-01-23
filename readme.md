@@ -16,10 +16,7 @@
 	* Laravel View
 	* Laravel Controller
 	* Blade Template
-	* CRUD
-	* use plugin database library.
 	
-
 ##Server Requirements
 	- PHP >= 5.6.4
 	- OpenSSL PHP Extension
@@ -489,5 +486,4 @@
 					<p>I'm looping forever.</p>
 				@endwhile
 				
-		*	The Loop Variable
-		
+				
