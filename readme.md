@@ -28,7 +28,22 @@
 		
 	- DONE !!.
 
-##
+##	View Datatable
+	* 	Route
+			-> Route::get('customer', ['as' => 'datatables', 'uses' => 'Customer@getIndex']);
+			-> Route::get('customer.data', ['as' => 'datatables.data', 'uses' => 'Customer@anyData']);
+			
+	*	Controller
+		*	View Controller
+				-> see "customer.php" as getIndex method.
+		* 	Data Result
+				-> set "customer.php" as anyData method.
+				
+	* 	View 
+		*	Master Blade
+				-> see "layouts/master.blade.php"
+		* 	Content Blade
+				-> see "layouts/index.blade.php"
 	
 ## Refference : 
 	- https://github.com/yajra/laravel-datatables
